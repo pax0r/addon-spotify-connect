@@ -38,6 +38,14 @@ bitrate=$(bashio::config 'bitrate')
     echo "bitrate = ${bitrate}"
 } >> /etc/spotifyd.conf
 
+if bashio::config.has_value 'normalisation_pregain'; then
+    normalisation_pregain=$(bashio::config 'normalisation_pregain')
+    {
+        echo "volume_normalisation = true"
+        echo "normalisation_pregain = ${normalisation_pregain}"
+    } >> /etc/spotifyd.conf
+fi
+
 if bashio::config.has_value 'initial_volume'; then
     initial_volume=$(bashio::config 'initial_volume')
     {

@@ -86,9 +86,13 @@ to disallow guests on your network to use the add-on.
 
 The password you use to login to your Spotify Premium account.
 
+### Option: `normalisation_pregain`
+
+The normalisation pregain that is applied for each song. If set it also enable volume normalisation between songs.
+
 ### Option: `initial_volume`
 
-Initial volume when user connected to Spotify Connect
+Volume on startup between 0 and 100
 
 ## Events
 
