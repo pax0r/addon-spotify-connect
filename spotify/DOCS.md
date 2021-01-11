@@ -98,7 +98,7 @@ Volume on startup between 0 and 100
 
 This addon will send events to your Home Assistant when certain things happen.
 
-Events: `hassio_spotify_play`, `hassio_spotify_stop`, `hassio_spotify_change`.
+Events: `hassio_spotify_start`, `hassio_spotify_stop`, `hassio_spotify_change`.
 
 Data: `track_id`, `old_track_id` (only for `hassio_spotify_change`)
 
