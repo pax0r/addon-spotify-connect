@@ -34,7 +34,7 @@ fi
 name=$(bashio::config 'name')
 bitrate=$(bashio::config 'bitrate')
 {
-    echo "device_name = ${name}"
+    echo "device_name = \"${name}\""
     echo "bitrate = ${bitrate}"
 } >> /etc/spotifyd.conf
 

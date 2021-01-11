@@ -1,12 +1,15 @@
-#!/usr/bin/with-contenv bashio
+#!/usr/bin/env bashio
 
-bashio::log.info "Event from spotifyd: ${PLAYER_EVENT} ${TRACK_ID} ${OLD_TRACK_ID}"
+bashio::log.info "Event from spotifyd: ${PLAYER_EVENT} ${TRACK_ID} ${OLD_TRACK_ID-}"
 
 case ${PLAYER_EVENT} in
   "play")
-    bashio::api.supervisor "POST" "/api/events/hassio_spotify_play" "{\"track_id\": \"${TRACK_ID}\"}" ;;
+    data=$(bashio::var.json track_id "${TRACK_ID}")
+    bashio::api.supervisor "POST" "core/api/events/hassio_spotify_play" "${data}" ;;
   "change")
-    bashio::api.supervisor "POST" "/api/events/hassio_spotify_change" "{\"track_id\": \"${TRACK_ID}\", \"old_track_id\": \"${OLD_TRACK_ID}\"}" ;;
+    data=$(bashio::var.json track_id "${TRACK_ID}" old_track_id "${OLD_TRACK_ID}")
+    bashio::api.supervisor "POST" "core/api/events/hassio_spotify_change" "${data}" ;;
   "stop")
-    bashio::api.supervisor "POST" "/api/events/hassio_spotify_stop" "{\"track_id\": \"${TRACK_ID}\"}" ;;
+    data=$(bashio::var.json track_id "${TRACK_ID}")
+    bashio::api.supervisor "POST" "core/api/events/hassio_spotify_stop" "${data}" ;;
 esac
