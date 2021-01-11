@@ -26,21 +26,21 @@ if bashio::config.has_value 'username'; then
     username=$(bashio::config 'username')
     password=$(bashio::config 'password')
     {
-        echo "username =${username}"
-        echo "password =${password}"
+        echo "username = ${username}"
+        echo "password = ${password}"
     } >> /etc/spotifyd.conf
 fi
 
 name=$(bashio::config 'name')
 bitrate=$(bashio::config 'bitrate')
 {
-    echo "device_name =${name}"
-    echo "bitrate =${bitrate}"
+    echo "device_name = ${name}"
+    echo "bitrate = ${bitrate}"
 } >> /etc/spotifyd.conf
 
 if bashio::config.has_value 'initial_volume'; then
     initial_volume=$(bashio::config 'initial_volume')
     {
-        echo "initial_volume =${initial_volume}"
+        echo "initial_volume = ${initial_volume}"
     } >> /etc/spotifyd.conf
 fi
