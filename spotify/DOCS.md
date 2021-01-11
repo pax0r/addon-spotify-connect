@@ -86,6 +86,18 @@ to disallow guests on your network to use the add-on.
 
 The password you use to login to your Spotify Premium account.
 
+### Option: `initial_volume`
+
+Initial volume when user connected to Spotify Connect
+
+## Events
+
+This addon will send events to your Home Assistant when certain things happen.
+
+Events: `hassio_spotify_play`, `hassio_spotify_stop`, `hassio_spotify_change`.
+
+Data: `track_id`, `old_track_id` (only for `hassio_spotify_change`)
+
 ## Known issues and limitations
 
 - This add-on does support ARM-based devices, nevertheless, they must
