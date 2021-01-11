@@ -49,6 +49,6 @@ fi
 if bashio::config.has_value 'initial_volume'; then
     initial_volume=$(bashio::config 'initial_volume')
     {
-        echo "initial_volume = ${initial_volume}"
+        echo "initial_volume = \"${initial_volume}\""
     } >> /etc/spotifyd.conf
 fi
